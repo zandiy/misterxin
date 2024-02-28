@@ -308,11 +308,11 @@ class Request {
         return $value;
     }
 
-    public function isPost()
+    static public function isPost()
     {
         return self::server('REQUEST_METHOD') == 'POST';
     }
-    public function isGet()
+    static public function isGet()
     {
         return self::server('REQUEST_METHOD') == 'GET';
     }
