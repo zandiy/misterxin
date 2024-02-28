@@ -1,0 +1,21 @@
+{
+    "name": "misterxin/common-class",
+    "description": "php-common-class",
+    "homepage": "https://mister.xin/",
+    "license": "Apache-2.0",
+    "type": "package",
+    "authors": [
+      {
+        "name": "mister.xin",
+        "email": "29502954@qq.com"
+      }
+    ],
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "misterxin\\":"src"
+        }
+    }
+}
