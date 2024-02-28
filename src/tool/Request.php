@@ -308,4 +308,13 @@ class Request {
         return $value;
     }
 
+    public function isPost()
+    {
+        return $this->server('REQUEST_METHOD') == 'POST';
+    }
+    public function isGet()
+    {
+        return $this->server('REQUEST_METHOD') == 'GET';
+    }
+    
 }
