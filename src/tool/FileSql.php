@@ -2,8 +2,6 @@
 
 namespace misterxin\tool;
 
-use Exception;
-
 class FileSql
 {
     private $filename; // 文件名
@@ -15,17 +13,19 @@ class FileSql
         $this->filename = $filename;
         if (file_exists($filename)) {
             $this->data = include_once($filename);
-        }else{
-            if(!(new File)->createFile($filename)){
-                throw new Exception('FileSql创建文件失败');
-            }
         }
     }
 
     // 析构函数在对象销毁前保存数据
     public function __destruct()
     {
-        file_put_contents($this->filename, "<?php\nreturn ".var_export($this->data, true).";");
+        $str = "<?php\nreturn ".var_export($this->data, true).";";
+        if (!file_exists($this->filename)) {
+            (new File)->createFile($this->filename,$str);
+        }else{
+            file_put_contents($this->filename, $str);
+        }
+        
     }
 
     // 查询所有记录
